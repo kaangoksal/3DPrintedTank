@@ -1,4 +1,16 @@
-
+/** Created by Kaan Göksal 
+ * 4/4/2016 
+ * This code is used to control a rc vehicle with 
+ * L298N + HC06 + Arduino Nano/UNO
+ *  
+ * Kaan Göksal yazmıştır bu kodu.
+ * 4 Nisan 2016
+ * Bu kod uzaktan kumandalı bir aracı kontrol eder.
+ * L298N + HC06 + Arduino Uno ve Nano ile uyumludur! 
+ * Serial.print ifadeleri debugging için kullanılmaktadır, silebilirsiniz.
+ * 
+ * 
+ */
 #include <SoftwareSerial.h>
 
 int IN1 = 3;
