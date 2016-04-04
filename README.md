@@ -6,10 +6,10 @@
 This is code is for controlling an Arduino based tank. 
 
 Components used
-HC-06 Bluetooth Module
-Arduino Mega / Nano / UNO 
-L298N 
-Some power source - I use Li-po.
+HC-06 Bluetooth Module  
+Arduino Mega / Nano / UNO  
+L298N  
+Some power source - I use Li-po.  
 
 
 
