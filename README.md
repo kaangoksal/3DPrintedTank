@@ -22,10 +22,10 @@ Merhaba arkadaşlar, bu projede Arduino tabanlı bir aracı kontrol etmek için 
 
 Kullandığım Kartlar
 
-Arduino Mega / Nano / Uno  ( / veya anlamına geliyor)
-L298N  (Motor sürücü)
-HC-06 (Bluetooth iletişim)
-Li-po 3S 2000mAh 
+Arduino Mega / Nano / Uno  ( / veya anlamına geliyor)  
+L298N  (Motor sürücü)  
+HC-06 (Bluetooth iletişim)  
+Li-po 3S 2000mAh  
 
 
 Arduino Uno'nuz varsa nano_uno olan kodu kullanın. Arduino Uno'nun ekstradan hardware serial'ı olmadığından software serial kullandım.
