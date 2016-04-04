@@ -22,7 +22,7 @@ Merhaba arkadaşlar, bu projede Arduino tabanlı bir aracı kontrol etmek için 
 
 Kullandığım Kartlar
 
-Arduino Mega / Nano / Uno  ( / veya anlamına geliyor) 
+Arduino Mega / Nano / Uno  ( / veya anlamına geliyor) \n
 L298N  (Motor sürücü)
 HC-06 (Bluetooth iletişim)
 Li-po 3S 2000mAh 
