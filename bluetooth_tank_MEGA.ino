@@ -29,21 +29,21 @@ void setup()
  pinMode(IN2, OUTPUT);  
  pinMode(IN3, OUTPUT);
  pinMode(IN4, OUTPUT);  //sol motor - left motor
- 
-  
+   Serial1.println("program start");
+   Serial.println("program start");
 }
 
 void loop()
 {
   String input = "";
-  Serial.println("program start");
+
   
      digitalWrite(IN1, LOW); //öncelikle motorları durduruyoruz! - first we stop the motors! 
      digitalWrite(IN2, LOW); 
      digitalWrite(IN3, LOW);
      digitalWrite(IN4, LOW); 
-	 
-	
+   
+  
   
    while (Serial1.available() > 0)
   {
@@ -51,8 +51,11 @@ void loop()
     delay(5);
   }
   
-  Serial.println(input);
-  
+  // eğer input "" dan farklıysa gösterilicek bu sayde Serial spamlenmiyecek! - 
+  //If input has a different value than empty string It is going to printout to the client.
+  if (input != "" ) {
+    Serial.println(input);
+  } 
   
   
   
@@ -61,19 +64,19 @@ void loop()
   if(input.indexOf("forward") > -1 || input.indexOf("w") > -1)
   {
        Serial.println("forward");
-	
+  
       digitalWrite(IN1, LOW);
       digitalWrite(IN2, HIGH);    //left motor back
-	  
+    
       digitalWrite(IN3, HIGH);
       digitalWrite(IN4, LOW);     //right motor back
-	 
+   
     
   }
   else if(input.indexOf("backward") > -1 || input.indexOf("s") > -1)
   {
         Serial.println("backward");
-	
+  
  
         digitalWrite(IN1, HIGH);   //Right Motor Go Forward
         digitalWrite(IN2, LOW);
@@ -94,16 +97,17 @@ void loop()
    else if(input.indexOf("left") > -1 || input.indexOf("a") > -1)
   {
     Serial.println("left");
-	
+  
    
    digitalWrite(IN1, LOW);   //Right Motor Go Forward
   digitalWrite(IN2, HIGH);
   }
   
-   
- Serial.println(digitalRead(IN1));
- Serial.println(digitalRead(IN2));
- Serial.println(digitalRead(IN3));
- Serial.println(digitalRead(IN4));
+if (digitalRead(IN1) != 0 || digitalRead(IN2) != 0 || digitalRead(IN3) != 0 || digitalRead(IN4) != 0 ) {
+  Serial.println(digitalRead(IN1));
+   Serial.println(digitalRead(IN2));
+   Serial.println(digitalRead(IN3));
+   Serial.println(digitalRead(IN4));
+} 
   delay(125);
 }
