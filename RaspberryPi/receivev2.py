@@ -1,6 +1,9 @@
 import socket
 import time
 
+from firebase import firebase
+
+
 
 if os.name != "nt":
     import fcntl
@@ -25,6 +28,12 @@ def get_lan_ip():
             except IOError:
                 pass
     return ip
+
+
+
+
+firebase = firebase.FirebaseApplication('shit ', None)  
+
 
 UDP_IP = get_lan_ip()
 UDP_PORT = 5005
