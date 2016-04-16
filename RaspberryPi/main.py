@@ -1,8 +1,9 @@
 import socket
 import time
 import os
+import serial
 
-
+port = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 if os.name != "nt":
     import fcntl
     import struct
@@ -48,6 +49,7 @@ while True:
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
     print("received message:", data, addr)
     received = data
-    if received == b'option1':
-        print("Command Received")
+    print(len(data))
+    if len(received) > 0:
+        port.write(received)
      
