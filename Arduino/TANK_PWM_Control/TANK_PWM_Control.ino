@@ -88,7 +88,6 @@ void loop() {
   if (directt.indexOf("F") > -1) {
     if (directd.indexOf("L") > -1) {
 
-
       analogWrite(IN2, dvalue);
       digitalWrite(IN1, LOW);
 
@@ -103,9 +102,9 @@ void loop() {
       analogWrite(IN3, dvalue );
       digitalWrite(IN4, LOW);
     }
-    Serial.print(directt + " " + directd + " ");
-    Serial.println(dvalue);
-    Serial.println(tvalue);
+    //Serial.print(directt + " " + directd + " ");
+    //Serial.println(dvalue);
+    //Serial.println(tvalue);
 
   } else if (directt.indexOf("B") > -1) {
     if (directd.indexOf("L") > -1) {
@@ -124,15 +123,15 @@ void loop() {
       analogWrite(IN4, dvalue );
       digitalWrite(IN3, LOW);
     }
-    Serial.print(directt + " " + directd + " ");
-    Serial.println(dvalue);
-    Serial.println(tvalue);
+    //Serial.print(directt + " " + directd + " ");
+    //Serial.println(dvalue);
+    //Serial.println(tvalue);
   }
 
 
 
 
 
-  delay(2000);
+  delay(125);
 
 }
