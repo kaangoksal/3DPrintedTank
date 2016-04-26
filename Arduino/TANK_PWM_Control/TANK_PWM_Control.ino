@@ -9,6 +9,8 @@ int IN4 = 11; //Motor 2
 void setup() {
   Serial.begin(9600);
   Serial.println("Program STarts");
+  
+  Serial1.begin(9600);
 
 
 
@@ -28,8 +30,8 @@ void loop() {
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, LOW);
 
-  while (Serial.available() > 0) {
-    input += (char)Serial.read();
+  while (Serial1.available() > 0) {
+    input += (char)Serial1.read();
     delay(5);
   }
 
