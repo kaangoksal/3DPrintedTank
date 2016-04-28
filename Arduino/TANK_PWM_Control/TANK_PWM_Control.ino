@@ -1,3 +1,19 @@
+/*
+ * This version of Tank arduino code is PWM compatible 
+ * The commands are like this 
+ * 
+ * *T:F-100*D:R-0*  
+ * This command is 100% forward without any direction
+ * 
+ * *T:B-100*D:R-0* 
+ * This command is 100% reverse. Without any direction
+ * 
+ * *T:F-50*D:L-50* 
+ * This command is 50% forwared. It will go left but not fully.
+ * 
+ * This code is compatible with Arduino Mega. The software serial is used. 
+ * 
+ */
 
 
 
@@ -128,12 +144,13 @@ void loop() {
     //Serial.print(directt + " " + directd + " ");
     //Serial.println(dvalue);
     //Serial.println(tvalue);
+    delay(500);
   }
 
 
 
 
 
-  delay(125);
+
 
 }
