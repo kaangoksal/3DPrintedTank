@@ -1,19 +1,19 @@
 /*
- * This version of Tank arduino code is PWM compatible 
- * The commands are like this 
- * 
- * *T:F-100*D:R-0*  
- * This command is 100% forward without any direction
- * 
- * *T:B-100*D:R-0* 
- * This command is 100% reverse. Without any direction
- * 
- * *T:F-50*D:L-50* 
- * This command is 50% forwared. It will go left but not fully.
- * 
- * This code is compatible with Arduino Mega. The software serial is used. 
- * 
- */
+   This version of Tank arduino code is PWM compatible
+   The commands are like this
+
+ * *T:F-100*D:R-0*
+   This command is 100% forward without any direction
+
+ * *T:B-100*D:R-0*
+   This command is 100% reverse. Without any direction
+
+ * *T:F-50*D:L-50*
+   This command is 50% forwared. It will go left but not fully.
+
+   This code is compatible with Arduino Mega. The software serial is used.
+
+*/
 
 
 
@@ -25,7 +25,7 @@ int IN4 = 11; //Motor 2
 void setup() {
   Serial.begin(9600);
   Serial.println("Program STarts");
-  
+
   Serial1.begin(9600);
 
 
@@ -34,6 +34,16 @@ void setup() {
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);  //sol motor - left motor
+
+  /*
+    digitalWrite(IN2, HIGH);
+    digitalWrite(IN3, HIGH);
+
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN4, LOW);
+
+    delay(2000);
+  */
 }
 
 void loop() {
@@ -41,10 +51,7 @@ void loop() {
   String input = "";
 
 
-  digitalWrite(IN1, LOW); //öncelikle motorları durduruyoruz! - first we stop the motors!
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, LOW);
+
 
   while (Serial1.available() > 0) {
     input += (char)Serial1.read();
@@ -99,12 +106,13 @@ void loop() {
   }
 
   tvalue = map(tvalue, 0, 100, 0, 255);
-  
+
   dvalue = 100 - dvalue;
   dvalue = map(dvalue, 0 , 100, 0 , tvalue); //this was 255 instead of tvalue
 
   if (directt.indexOf("F") > -1) {
     if (directd.indexOf("L") > -1) {
+      Serial.println("Forward L");
 
       analogWrite(IN2, dvalue);
       digitalWrite(IN1, LOW);
@@ -113,17 +121,20 @@ void loop() {
       digitalWrite(IN4, LOW);
 
     } else if (directd.indexOf("R") > -1) {
-
+      Serial.println("Forward R");
       analogWrite(IN2,  tvalue);
       digitalWrite(IN1, LOW);
 
       analogWrite(IN3, dvalue );
       digitalWrite(IN4, LOW);
     }
-    //Serial.print(directt + " " + directd + " ");
-    //Serial.println(dvalue);
-    //Serial.println(tvalue);
+    /*
+      Serial.print(directt + " " + directd + " ");
+      Serial.println(dvalue);
+      Serial.println(tvalue);
 
+    */
+    delay(200);
   } else if (directt.indexOf("B") > -1) {
     if (directd.indexOf("L") > -1) {
 
@@ -144,7 +155,12 @@ void loop() {
     //Serial.print(directt + " " + directd + " ");
     //Serial.println(dvalue);
     //Serial.println(tvalue);
-    delay(500);
+    delay(200);
+  } else {
+    digitalWrite(IN1, LOW); //öncelikle motorları durduruyoruz! - first we stop the motors!
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, LOW);
   }
 
 
