@@ -11,7 +11,7 @@
  * *T:F-50*D:L-50*
    This command is 50% forwared. It will go left but not fully.
 
-   This code is compatible with Arduino Mega. The software serial is used.
+   This code is compatible with Arduino Mega. Hardware serial is used.
 
 */
 
